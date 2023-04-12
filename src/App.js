@@ -1,11 +1,13 @@
-import './App.css';
-import { Icon, Margins, Button } from '@rocket.chat/fuselage';
+import { Icon, Margins, Button, ButtonGroup, Chip, Throbber } from '@rocket.chat/fuselage';
 import { useState } from 'react';
+import { useAppData } from './hooks/useAppData';
 
+import './App.css';
 import '@rocket.chat/icons/dist/rocketchat.css';
 
-function App() {
+const App = () => {
   const [text, setText] = useState(null);
+  const { users, fetchUsers, isLoading } = useAppData();
 
   const handleClick = () => {
     setText('stop clicking me! Go to the docs and explore :)');
@@ -18,7 +20,6 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        {/* <img src={logo} className="App-logo" alt="logo" /> */}
         <img width={500} className="App-logo" src="https://github.com/RocketChat/Rocket.Chat.Artwork/raw/master/Logos/2020/png/logo-horizontal-red.png" alt="Rocket.Chat" style={{ maxWidth: '100%' }} />
         
         <p>This is a simple react boilerplate combined with Fuselage component's library, ready to use.</p>
@@ -28,11 +29,29 @@ function App() {
 
       <div className="playground">
         <Margins block='x8'>
-          <Button primary onClick={handleClick}>Button</Button>
-          <div>{text}</div>
+          <ButtonGroup>
+            <Button primary onClick={handleClick}>Button</Button>
+            <Button primary onClick={fetchUsers}>Fetch Example</Button>
+          </ButtonGroup>
         </Margins>
       </div>
 
+      <div>{text}</div>
+
+      {isLoading && (
+        <Margins block='x8'>
+          <Throbber />
+        </Margins>
+      )}
+
+      {!isLoading && (
+        <ul>
+        {users?.map((user) => (
+            <li style={{ listStyle: 'none' }} key={user.id}><Chip mbe='x8'>{user.name}</Chip></li>
+          ))}
+        </ul>
+      )}
+      
       <div>
         <a
           className="App-link"
@@ -45,6 +64,6 @@ function App() {
       </div>
     </div>
   );
-}
+};
 
 export default App;
