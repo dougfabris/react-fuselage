@@ -1,12 +1,12 @@
-import React, { useMemo, useState } from 'react';
+import React, { ReactNode, useMemo, useState } from 'react';
 
 import { AppContext } from '../contexts/AppContext';
 
-const AppProvider = ({ children }) => {
+const AppProvider = ({ children }: { children: ReactNode }) => {
 	const [users, setUsers] = useState();
 	const [isLoading, setIsLoading] = useState(false);
 
-  const getUsers = async () => {
+  const fetchUsers = async () => {
 		setIsLoading(true);
     try {
       await fetch('https://jsonplaceholder.typicode.com/users')
@@ -19,7 +19,7 @@ const AppProvider = ({ children }) => {
     }
   }
 
-  const value = useMemo(() => ({ users, fetchUsers: () => getUsers(), isLoading }), [users, isLoading]);
+  const value = useMemo(() => ({ users, fetchUsers, isLoading }), [users, isLoading]);
 
 	return (
 		<AppContext.Provider value={value}>

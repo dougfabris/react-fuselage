@@ -1,12 +1,15 @@
 import { Icon, Margins, Button, ButtonGroup, Chip, Throbber } from '@rocket.chat/fuselage';
 import { useState } from 'react';
 import { useAppData } from './hooks/useAppData';
+import React from 'react';
 
 import './App.css';
 import '@rocket.chat/icons/dist/rocketchat.css';
+import '@rocket.chat/fuselage/dist/fuselage.css';
+
 
 const App = () => {
-  const [text, setText] = useState(null);
+  const [text, setText] = useState<string | null>(null);
   const { users, fetchUsers, isLoading } = useAppData();
 
   const handleClick = () => {
