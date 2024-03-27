@@ -3,14 +3,13 @@ import { useState } from 'react';
 import { useAppData } from './hooks/useAppData';
 import React from 'react';
 
-import './App.css';
-import '@rocket.chat/icons/dist/rocketchat.css';
-import '@rocket.chat/fuselage/dist/fuselage.css';
+import { useNavigate } from 'react-router-dom';
 
 
 const App = () => {
   const [text, setText] = useState<string | null>(null);
   const { users, fetchUsers, isLoading } = useAppData();
+  const navigate = useNavigate();
 
   const handleClick = () => {
     setText('stop clicking me! Go to the docs and explore :)');
@@ -35,6 +34,7 @@ const App = () => {
           <ButtonGroup>
             <Button primary onClick={handleClick}>Button</Button>
             <Button primary onClick={fetchUsers}>Fetch Example</Button>
+            <Button onClick={() => navigate('/route-example')}>Check the route example</Button>
           </ButtonGroup>
         </Margins>
       </div>
