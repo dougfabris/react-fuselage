@@ -11,7 +11,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@rocket.chat/fuselage": "^0.52.0",
+    "@rocket.chat/fuselage": "^0.73.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.22.3",
@@ -19,13 +19,12 @@
   },
   "peerDependencies": {
     "@rocket.chat/fuselage-hooks": "*",
-    "@rocket.chat/fuselage-polyfills": "*",
     "@rocket.chat/icons": "*"
   },
   "devDependencies": {
-    "@rocket.chat/fuselage-hooks": "^0.33.1",
-    "@rocket.chat/fuselage-polyfills": "^0.31.25",
-    "@rocket.chat/icons": "^0.34.0",
+    "@rocket.chat/fuselage-hooks": "^0.40.0",
+    "@rocket.chat/icons": "^0.47.0",
+    "@types/react": "^19.2.14",
     "@typescript-eslint/eslint-plugin": "^7.2.0",
     "@typescript-eslint/parser": "^7.2.0",
     "@vitejs/plugin-react": "^4.2.1",
