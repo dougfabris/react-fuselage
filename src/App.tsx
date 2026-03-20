@@ -58,7 +58,7 @@ const App = () => {
       <div>
         <a
           className="App-link"
-          href="https://rocketchat.github.io/fuselage/fuselage/master/"
+          href="https://rocketchat.github.io/fuselage/"
           target="_blank"
           rel="noopener noreferrer"
         >
