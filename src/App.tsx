@@ -1,7 +1,6 @@
 import { Icon, Margins, Button, ButtonGroup, Chip, Throbber } from '@rocket.chat/fuselage';
 import { useState } from 'react';
 import { useAppData } from './hooks/useAppData';
-import React from 'react';
 
 import { useNavigate } from 'react-router-dom';
 

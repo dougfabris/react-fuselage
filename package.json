@@ -25,6 +25,7 @@
     "@rocket.chat/fuselage-hooks": "^0.40.0",
     "@rocket.chat/icons": "^0.47.0",
     "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
     "@typescript-eslint/eslint-plugin": "^7.2.0",
     "@typescript-eslint/parser": "^7.2.0",
     "@vitejs/plugin-react": "^4.2.1",
